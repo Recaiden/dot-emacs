@@ -17,11 +17,12 @@
 (global-unset-key [(control x) (control z)])
 
 ;; Never quit by mistake.
-(global-set-key [(control x) (control c)] 
-  (function 
-   (lambda () (interactive) 
-     (cond ((y-or-n-p "Quit editor? ")
-            (save-buffers-kill-emacs))))))
+;; Disabled because of complications with shell-mode
+;(global-set-key [(control x) (control c)] 
+;  (function 
+;   (lambda () (interactive) 
+;     (cond ((y-or-n-p "Quit editor? ")
+;            (save-buffers-kill-emacs))))))
 
 ;; Never switch to overwrite mode, not even accidentally
 (global-set-key [insert] 

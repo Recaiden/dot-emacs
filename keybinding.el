@@ -69,22 +69,20 @@
  )
 )
 
-(add-hook 'c-mode-common-hook (function (lambda ()(local-set-key (kbd "<tab>") 'indent-or-complete))))
-(add-hook 'python-mode-hook (function (lambda () (local-set-key (kbd "<tab>") 'indent-or-complete))))
-(add-hook 'lisp-mode-hook (function (lambda () (local-set-key (kbd "<tab>") 'indent-or-complete))))
-(add-hook 'lisp-interaction-hook (function (lambda () (local-set-key (kbd "<tab>") 'indent-or-complete))))
-(add-hook 'c-mode-common-hook
-	  (lambda ()
+(setq programming-modes (list 
+			 'c-mode-common-hook
+			 'python-mode-hook
+			 'lisp-mode-hook
+			 'lisp-interaction-hook))
+
+(defun apply-hook-to-modes (hook-fun hook-list) (mapcar (lambda (x) (add-hook x hook-fun)) hook-list ))
+
+(apply-hook-to-modes (function (lambda ()(local-set-key (kbd "<tab>") 'indent-or-complete))) programming-modes )
+(apply-hook-to-modes (function (lambda ()
 	    (font-lock-add-keywords nil
              '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (font-lock-add-keywords nil
-             '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
-(add-hook 'lisp-mode-hook
-	  (lambda ()
-	    (font-lock-add-keywords nil
-             '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+		     programming-modes )
+
 
 ;; kill current buffer without confirmation
 (global-set-key "\C-xk" 'kill-current-buffer)
