@@ -43,6 +43,9 @@
 
 (define-key global-map "\C-s" 'save-buffer)
 
+(global-unset-key "\C-j")
+(define-key global-map "\C-j" 'copy-line)
+
 (global-unset-key "\C-a")
 (define-key global-map "\C-a" 'mark-whole-buffer)
 
@@ -90,6 +93,7 @@
 (global-unset-key "\C-x\C-v")
 
 (defun clear-pseudo-shell ()
+  (interactive)
   (erase-buffer)
   (comint-send-input)
   )
