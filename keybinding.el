@@ -90,3 +90,10 @@
 (global-set-key "\C-xk" 'kill-current-buffer)
 
 (global-unset-key "\C-x\C-v")
+
+(defun clear-pseudo-shell ()
+  (erase-buffer)
+  (comint-send-input)
+  )
+
+(add-hook 'shell-mode-hook (function (lambda ()(local-set-key (kbd "C-l") 'clear-pseudo-shell))))

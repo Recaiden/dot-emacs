@@ -32,3 +32,11 @@
 ;; Fix Home and End
 (global-set-key [home] 'beginning-of-line)
 (global-set-key [end] 'end-of-line)
+
+
+; make completion buffers disappear after 3 seconds.
+(add-hook 'completion-setup-hook
+  (lambda () (run-at-time 3 nil
+    (lambda () (delete-windows-on "*Completions*")))))
+
+

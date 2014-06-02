@@ -83,6 +83,12 @@
           (dabbrev-expand nil)
         (indent-for-tab-command)
         ))
+	
+(setq explicit-shell-file-name "/usr/bin/python")
+(setq shell-file-name "python")
+(setq explicit-python-args '("/home/mlwatts/pyshell/pyshell.py"))
+(setenv "SHELL" shell-file-name)
+(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
 ;;=========================================================================;;
 ;;                        M I S C E L L A N I A                            ;;
