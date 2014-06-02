@@ -36,7 +36,7 @@
 
 ; make completion buffers disappear after 3 seconds.
 (add-hook 'completion-setup-hook
-  (lambda () (run-at-time 3 nil
+  (lambda () (run-at-time 15 nil
     (lambda () (delete-windows-on "*Completions*")))))
 
 
