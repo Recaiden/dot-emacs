@@ -35,9 +35,9 @@
 (global-set-key [end] 'end-of-line)
 
 
-; make completion buffers disappear after 3 seconds.
+; make completion buffers disappear after x seconds.
 (add-hook 'completion-setup-hook
-  (lambda () (run-at-time 15 nil
+  (lambda () (run-at-time 55 nil
     (lambda () (delete-windows-on "*Completions*")))))
 
 
