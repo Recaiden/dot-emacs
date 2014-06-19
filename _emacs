@@ -26,6 +26,7 @@
 (load "~/.emacs.d/modes.el")
 (load "~/.emacs.d/customizations.el")
 (load "~/.emacs.d/syntax.el")
+(load "~/.emacs.d/tabs.el")
 
 ;; Thanks to David Jolley for the time code
 (setq display-time-24hr-format t)
@@ -141,3 +142,4 @@
       ;     )))
 
 (shell)
+(rename-buffer "shell")

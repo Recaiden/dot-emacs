@@ -59,11 +59,6 @@
 (global-set-key [C-next] 'scroll-other-window)
 (global-set-key [C-prior] 'scroll-other-window-down)
 
-;; Tab through buffers
-(global-set-key (kbd"<C-tab>") 'next-buffer)
-(global-set-key (kbd"<C-S-tab>") 'previous-buffer)
-(global-set-key (kbd"<C-S-iso-lefttab>") 'previous-buffer)
-
 ;; Make search use Ctrl+f and Ctrl+Shift+f for reverse like a reasonable app
 (define-key global-map (kbd "C-f") 'isearch-forward)
 (define-key global-map (kbd "C-S-f") 'isearch-backward)

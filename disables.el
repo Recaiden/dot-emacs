@@ -41,3 +41,22 @@
     (lambda () (delete-windows-on "*Completions*")))))
 
 
+; Remove the useless *messages* buffer
+;; Forces the messages to 0, and kills the *Messages* buffer - thus disabling it on startup.
+;; replaced by custom tabbing commands.
+;; (setq message-log-max nil)
+;; (setq-default message-log-max nil)
+;; (kill-buffer "*Messages*")
+
+;; (defun message-buffer-on ()
+;;   (interactive)
+;;   (setq message-log-max 1000)
+;;   )
+
+;; (defun message-buffer-off ()
+;;   (interactive)
+;;   (setq message-log-max nil)
+;;   )
+
+
+; (substitute-key-definition 'kill-buffer 'kill-buffer-and-its-windows global-map)
