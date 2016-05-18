@@ -44,7 +44,7 @@
 (define-key global-map "\C-s" 'save-buffer)
 
 (global-unset-key "\C-j")
-(define-key global-map "\C-j" 'copy-line)
+(define-key global-map "\C-j" 'copy-to-line-end)
 
 (global-unset-key "\C-a")
 (define-key global-map "\C-a" 'mark-whole-buffer)
