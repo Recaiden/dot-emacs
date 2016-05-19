@@ -107,11 +107,9 @@
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
 (defun copy-to-line-end (arg)
-  "Copy text into the kill ring from the position of the cursor tot he end of lines.
-      Ease of use features:
-      - Appends the copy on sequential calls.
+  "Copy text into the kill ring from the position of the cursor to the end of the line.
       - Use newline as last char even on the last line of the buffer.
-      - If region is active, copy its lines."
+      - If region is active, copy its lines.  Probably."
   (interactive "p")
   (let ((beg (point))
 	(end (line-end-position arg)))
@@ -119,11 +117,9 @@
       (if (> (point) (mark))
 	  (setq beg (save-excursion (goto-char (mark)) (point)))
 	(setq end (save-excursion (goto-char (mark)) (line-end-position)))))
-    (if (eq last-command 'copy-line)
-	(kill-append (buffer-substring beg end) (< end beg))
-      (kill-ring-save beg end)))
+    (kill-ring-save beg end))
   (kill-append "\n" nil)
-  ;(beginning-of-line (or (and arg (1+ arg)) 2))
+  (message "copied")
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
 ;; Shell within emacs
