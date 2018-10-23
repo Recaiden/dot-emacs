@@ -17,7 +17,23 @@
 (add-to-list 'load-path "~/.emacs.d/php-mode-1.5.0")
 (add-to-list 'load-path "~/.emacs.d/auto-save-list")
 
-;; 
+;;packaging
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+;;
+(load "~/.emacs.d/private.el") ; contains per-machine keys and shouldn't be uploaded
 (load "~/.emacs.d/info.el")
 (load "~/.emacs.d/disables.el")
 (load "~/.emacs.d/rec-colors.el")
