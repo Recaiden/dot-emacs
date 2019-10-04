@@ -26,6 +26,7 @@
 ;(define-key global-map (kbd"<f7>") ')
 ;(define-key global-map [(shift f7)] ')
 
+(define-key global-map (kbd"<f8>") 'neotree-toggle)
 ;(define-key global-map (kbd"<f8>") ')
 ;(define-key global-map [(shift f8)] ')
 
@@ -67,7 +68,10 @@
  (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
  (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
  )
-)
+ )
+
+;; toggle whitespace-mode
+(define-key global-map (kbd "C-x w") 'whitespace-mode)
 
 (setq programming-modes (list 
 			 'c-mode-common-hook

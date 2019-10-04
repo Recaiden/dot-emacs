@@ -32,7 +32,14 @@
 (eval-when-compile
   (require 'use-package))
 
-;;
+; Tree viewer for files
+(require 'neotree)
+(require 'all-the-icons)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(neotree-show)
+
+(require 'magit)
+
 (load "~/.emacs.d/private.el") ; contains per-machine keys and shouldn't be uploaded
 (load "~/.emacs.d/info.el")
 (load "~/.emacs.d/disables.el")
@@ -56,7 +63,9 @@
 ;; Comments in italics
 ;; (Emacs 20)
  (setq w32-enable-italics t)
- (make-face-italic 'font-lock-comment-face)
+(make-face-italic 'font-lock-comment-face)
+
+(auto-fill-mode -1)
 
 ;; To obtain new font string, place this string:
 ;; (insert(prin1-to-string(w32-select-font))) in the scratch buffer
@@ -139,10 +148,10 @@
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
 ;; Shell within emacs
-(setq explicit-shell-file-name "/usr/bin/python")
-(setq shell-file-name "python")
-(setq explicit-python-args '("/home/mlwatts/pyshell/pyshell.py"))
-(setenv "SHELL" shell-file-name)
+;(setq explicit-shell-file-name "/usr/bin/python")
+;(setq shell-file-name "python")
+;(setq explicit-python-args '("/home/mlwatts/pyshell/pyshell.py"))
+;(setenv "SHELL" shell-file-name)
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
 ;;=========================================================================;;
